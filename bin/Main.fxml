@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="722.0" prefWidth="816.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <ButtonBar layoutX="158.0" prefHeight="89.0" prefWidth="100.0" />
+    <Button id="btn_upload" fx:id="uploadBtn" layoutX="27.0" layoutY="58.0" mnemonicParsing="false" onAction="#buttonOneAction" prefHeight="38.0" prefWidth="69.0" text="Upload" />
+      <Slider fx:id="increaseBrightness" blockIncrement="1.0" layoutX="36.0" layoutY="165.0" max="150.0" onDragDetected="#increaseBrightnessDrag" showTickMarks="true" />
+      <Slider fx:id="decreaseBrightness" blockIncrement="1.0" layoutX="32.0" layoutY="266.0" max="150.0" onDragDetected="#decreaseBrightnessDrag" showTickMarks="true" />
+      <Label layoutX="51.0" layoutY="131.0" prefHeight="17.0" prefWidth="147.0" text="Increase brightness" />
+      <Label layoutX="51.0" layoutY="224.0" prefHeight="17.0" prefWidth="110.0" text="Decrease brigthness" />
+      <Button fx:id="saveBtn" layoutX="124.0" layoutY="58.0" mnemonicParsing="false" onAction="#saveModifiedImage" prefHeight="38.0" prefWidth="69.0" text="Save" />
+      <ButtonBar layoutX="64.0" layoutY="341.0" prefHeight="40.0" prefWidth="76.0" />
+    <Button fx:id="clearBtn" layoutX="54.0" layoutY="324.0" mnemonicParsing="false" onAction="#buttonClearAction" prefHeight="38.0" prefWidth="76.0" text="Clear" />
+      <Label layoutX="459.0" layoutY="29.0" prefHeight="31.0" prefWidth="171.0" text="Original Image">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageViewOriginal" fitHeight="247.0" fitWidth="499.0" layoutX="281.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageViewModified" fitHeight="247.0" fitWidth="499.0" layoutX="270.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="459.0" layoutY="361.0" text="Modified Image">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
