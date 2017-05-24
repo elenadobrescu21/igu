@@ -26,7 +26,7 @@
          </font>
       </Label>
       <ImageView fx:id="imageViewOriginal" fitHeight="247.0" fitWidth="499.0" layoutX="281.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imageViewModified" fitHeight="247.0" fitWidth="499.0" layoutX="270.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageViewModified" fitHeight="247.0" fitWidth="508.0" layoutX="270.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="446.0" layoutY="366.0" text="Modified Image">
          <font>
             <Font size="21.0" />
