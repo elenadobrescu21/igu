@@ -12,27 +12,27 @@ import javafx.scene.Parent;
 import javafx.scene.control.Slider;
 import javafx.scene.image.*;
 
-public class Main extends Application {
 
-	
-	@Override
-	public void start(Stage primaryStage) {
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
-			Scene scene = new Scene(root);
-	
-			primaryStage.setTitle("My title");
-			primaryStage.setScene(scene);
+		public class Main extends Application {
 		
-			primaryStage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			@Override
+			public void start(Stage primaryStage) {
+				try {
+					Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
+					Scene scene = new Scene(root);
+					primaryStage.setTitle("Aplicatie pentru procesare de imagine");
+					primaryStage.setScene(scene);	
+					primaryStage.show();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}		
+			}
+			
+			public static void main(String[] args) {
+				launch(args);
+			}
 		}
 		
-	}
-	
-	public static void main(String[] args) {
-		launch(args);
-	}
-}
+		
+		
+

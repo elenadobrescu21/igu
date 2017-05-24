@@ -19,8 +19,7 @@ public class BrightnessModifier {
 	
 	
 	
-	public void adjustBrightness(BufferedImage image, int brightnessAdjust) {
-			
+	public void adjustBrightness(BufferedImage image, int brightnessAdjust) {			
 		for(int i=0; i<height; i++ ) {
 			for(int j=0; j<width; j++) {
 				Color color = new Color(image.getRGB(j, i));
@@ -34,22 +33,47 @@ public class BrightnessModifier {
 				
 				Color newColor = new Color(newRed, newGreen, newBlue);
 				
-				image.setRGB(j,i, newColor.getRGB());
-							
+				image.setRGB(j,i, newColor.getRGB());						
 			}
-		}
-			
+		}			
 	}
+	
+	
 	
 	public int truncate(int value) {
 		if(value < 0) {
 			return 0;
-		}
-		
+		}	
 		if(value > 255) {
 			return 255;
-		}
-		
+		}	
 		return value;
 	}
+
+	
+
+
+	public int getHeight() {
+		return height;
+	}
+
+
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+
+
+	public int getWidth() {
+		return width;
+	}
+
+
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	
+	
 }

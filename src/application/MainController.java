@@ -15,9 +15,11 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -45,18 +47,23 @@ public class MainController {
 	
 	@FXML
 	private ImageView imageViewModified;
-	
-	
+		
 	@FXML
 	private Slider increaseBrightness;
 	
 	@FXML
 	private Slider decreaseBrightness;
 	
+	@FXML
+	private TextField timpDeProcesareText;
 	
 	@FXML
+	private TextField timpDeProcesareIncarcare;
+	
+
+	@FXML
 	public void buttonOneAction(ActionEvent event) {
-		
+		 long startTime = System.currentTimeMillis();
 		 FileChooser fileChooser = new FileChooser();
          
          //Set extension filter
@@ -78,6 +85,11 @@ public class MainController {
          } catch (IOException ex) {
              ex.printStackTrace();
          }
+         
+         long elapsedTime = System.currentTimeMillis() - startTime;  
+         String time = Long.toString(elapsedTime)+"ms";
+         timpDeProcesareIncarcare.setText(time);
+         
 	}
 	
 	@FXML
@@ -85,12 +97,13 @@ public class MainController {
 		imageViewModified.setImage(imageOriginal);
 		increaseBrightness.setValue(0);
 		decreaseBrightness.setValue(0);
-		
+		timpDeProcesareText.clear();		
 	}
 	
 	@FXML
 	public void saveModifiedImage(ActionEvent event) {
-	 FileChooser fileChooser = new FileChooser();
+		
+		FileChooser fileChooser = new FileChooser();
          
          //Set extension filter
          FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
@@ -100,36 +113,46 @@ public class MainController {
          fileChooser.setTitle("Save image");
            
          File file = fileChooser.showSaveDialog(null);
-         
+               
          if (file != null) {
              try {
-                 ImageIO.write(SwingFXUtils.fromFXImage(imageViewModified.getImage(),null),
-                          "bmp", file);
+            	 ImageIO.write(SwingFXUtils.fromFXImage(imageViewModified.getImage(),null),
+                         "png", file);
              } catch (IOException ex) {
                  ex.printStackTrace();
              }
          }
+         
+      
      }
 		
 		
-	
-	
 	@FXML
 	public void increaseBrightnessDrag(Event event) {
+		long startTime = System.currentTimeMillis();
 		BrightnessModifier bm = new BrightnessModifier(bufferedImageModified.getHeight(), bufferedImageModified.getWidth());
 		bm.adjustBrightness(bufferedImageModified, (int)increaseBrightness.getValue());
+		
 		Image imageModified = SwingFXUtils.toFXImage(bufferedImageModified, null);
         imageViewModified.setImage(imageModified);
+      
+        long elapsedTime = System.currentTimeMillis() - startTime;  
+        String time = Long.toString(elapsedTime)+"ms";
+        timpDeProcesareText.setText(time);
 	
 	}
 	
 	@FXML
 	public void decreaseBrightnessDrag(Event event) {
+		long startTime = System.currentTimeMillis();
 		System.out.println("hello");
 		BrightnessModifier bm = new BrightnessModifier(bufferedImageModified.getHeight(), bufferedImageModified.getWidth());
 		bm.adjustBrightness(bufferedImageModified, -(int)decreaseBrightness.getValue());
 		Image imageModified = SwingFXUtils.toFXImage(bufferedImageModified, null);
         imageViewModified.setImage(imageModified);
+        long elapsedTime = System.currentTimeMillis() - startTime;  
+        String time = Long.toString(elapsedTime)+"ms";
+        timpDeProcesareText.setText(time);
 	
 	}
 	
